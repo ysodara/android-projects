@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Sodara\'s Tip Calculator</string>
+    <string name="header">Tip Calculator</string>
+    <string name="bill">Amount of Bill:</string>
+    <string name="percentageTip">Percentage to Tip:</string>
+    <string name="peopleNum">Number of People:</string>
+    <string name="tipTotal">Tip Amount:</string>
+    <string name="totalBill">Total to Pay:</string>
+    <string name="perPerson">Total per person:</string>
+
+
+</resources>
