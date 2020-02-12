@@ -30,14 +30,7 @@ object MovieRepository {
                 ) {
                     val body = response.body()
                     onSuccess.invoke(body!!.movies)
-//                    if (response.isSuccessful) {
-//                        val responseBody = response.body()
-//                        if (responseBody != null) {
-//                            Log.d("Repository", "Movies: ${responseBody.movies}")
-//                        } else {
-//                            Log.d("Repository", "Failed to get response")
-//                        }
-//                    }
+
                 }
                 override fun onFailure(call: Call<GetMoviesResponse>, t: Throwable) {
                     Log.d("Repository", t.toString(), t)
@@ -57,14 +50,6 @@ object MovieRepository {
                 ) {
                     val body = response.body()
                     onSuccess.invoke(body!!.movies)
-//                    if (response.isSuccessful) {
-//                        val responseBody = response.body()
-//                        if (responseBody != null) {
-//                            Log.d("Repository", "Movies: ${responseBody.movies}")
-//                        } else {
-//                            Log.d("Repository", "Failed to get response")
-//                        }
-//                    }
                 }
                 override fun onFailure(call: Call<GetMoviesResponse>, t: Throwable) {
                     Log.d("Repository", t.toString(), t)
@@ -85,14 +70,7 @@ object MovieRepository {
                 ) {
                     val body = response.body()
                     onSuccess.invoke(body!!.movies)
-//                    if (response.isSuccessful) {
-//                        val responseBody = response.body()
-//                        if (responseBody != null) {
-//                            Log.d("Repository", "Movies: ${responseBody.movies}")
-//                        } else {
-//                            Log.d("Repository", "Failed to get response")
-//                        }
-//                    }
+
                 }
                 override fun onFailure(call: Call<GetMoviesResponse>, t: Throwable) {
                     Log.d("Repository", t.toString(), t)
