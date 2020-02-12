@@ -19,28 +19,87 @@ object MovieRepository {
         api = retrofit.create(IMovieApi::class.java)
     }
 
-    fun getPopularMovies(page : Int = 1,
+    fun getNowPlayingMovies(page : Int = 1,
                          onSuccess : (movies : List<Movie>) -> Unit,
                          onError : () -> Unit) {
-        api.getPopularMovies(page = page)
+        api.getNowPlayingMovies(page = page)
             .enqueue(object : Callback<GetMoviesResponse> {
                 override fun onResponse(
                     call: Call<GetMoviesResponse>,
                     response: Response<GetMoviesResponse>
                 ) {
-                    if (response.isSuccessful) {
-                        val responseBody = response.body()
-                        if (responseBody != null) {
-                            Log.d("Repository", "Movies: ${responseBody.movies}")
-                        } else {
-                            Log.d("Repository", "Failed to get response")
-                        }
-                    }
+                    val body = response.body()
+                    onSuccess.invoke(body!!.movies)
+//                    if (response.isSuccessful) {
+//                        val responseBody = response.body()
+//                        if (responseBody != null) {
+//                            Log.d("Repository", "Movies: ${responseBody.movies}")
+//                        } else {
+//                            Log.d("Repository", "Failed to get response")
+//                        }
+//                    }
                 }
                 override fun onFailure(call: Call<GetMoviesResponse>, t: Throwable) {
-                    Log.e("Repository", "onFailure", t)
+                    Log.d("Repository", t.toString(), t)
+                    onError.invoke()
                 }
             })
+    }
+
+    fun getLatest(page : Int = 1,
+                     onSuccess : (movies : List<Movie>) -> Unit,
+                     onError : () -> Unit) {
+        api.getLatest(page = page)
+            .enqueue(object : Callback<GetMoviesResponse> {
+                override fun onResponse(
+                    call: Call<GetMoviesResponse>,
+                    response: Response<GetMoviesResponse>
+                ) {
+                    val body = response.body()
+                    onSuccess.invoke(body!!.movies)
+//                    if (response.isSuccessful) {
+//                        val responseBody = response.body()
+//                        if (responseBody != null) {
+//                            Log.d("Repository", "Movies: ${responseBody.movies}")
+//                        } else {
+//                            Log.d("Repository", "Failed to get response")
+//                        }
+//                    }
+                }
+                override fun onFailure(call: Call<GetMoviesResponse>, t: Throwable) {
+                    Log.d("Repository", t.toString(), t)
+                    onError.invoke()
+                }
+            })
+
+    }
+
+    fun getUpcoming(page : Int = 1,
+                     onSuccess : (movies : List<Movie>) -> Unit,
+                     onError : () -> Unit) {
+        api.getUpcoming(page = page)
+            .enqueue(object : Callback<GetMoviesResponse> {
+                override fun onResponse(
+                    call: Call<GetMoviesResponse>,
+                    response: Response<GetMoviesResponse>
+                ) {
+                    val body = response.body()
+                    onSuccess.invoke(body!!.movies)
+//                    if (response.isSuccessful) {
+//                        val responseBody = response.body()
+//                        if (responseBody != null) {
+//                            Log.d("Repository", "Movies: ${responseBody.movies}")
+//                        } else {
+//                            Log.d("Repository", "Failed to get response")
+//                        }
+//                    }
+                }
+                override fun onFailure(call: Call<GetMoviesResponse>, t: Throwable) {
+                    Log.d("Repository", t.toString(), t)
+                    onError.invoke()
+                }
+            })
+
     }
 
 }

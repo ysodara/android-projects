@@ -42,7 +42,7 @@ class MovieAdapter (
                 .transform(CenterCrop())
                 .into(poster)
             itemView.setOnClickListener {
-
+                onMovieClick.invoke(movie)
             }
 
         }

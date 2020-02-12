@@ -36,11 +36,7 @@ class MainActivity : AppCompatActivity() {
         popularMoviesAdapter = MovieAdapter(mutableListOf()) { movie -> showMovieDetails(movie) }
         popularMovies.adapter = popularMoviesAdapter
 
-//        MovieRepository.getPopularMovies(
-//            popularMoviesPage,
-//            ::onPopularMoviesFetched,
-//            ::onError
-//        )
+
         getPopularMovies()
 
         topRatedMovies = findViewById(R.id.top_movies)
@@ -58,16 +54,13 @@ class MainActivity : AppCompatActivity() {
         upcomingMoviesAdapter = MovieAdapter(mutableListOf()) { movie -> showMovieDetails(movie) }
         upcomingMovies.adapter = upcomingMoviesAdapter
 
-
-
-
-       getUpcomingMovies()
+        getUpcomingMovies()
 
 
     }
 
     private fun getPopularMovies() {
-        MovieRepository.getPopularMovies(
+        MovieRepository.getNowPlayingMovies(
             popularMoviesPage,
             ::onPopularMoviesFetched,
             ::onError
@@ -75,7 +68,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getTopRatedMovies() {
-        MovieRepository.getPopularMovies(
+        MovieRepository.getLatest(
             topRatedMoviesPage,
             ::onTopRatedMoviesFetched,
             ::onError
@@ -83,7 +76,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getUpcomingMovies() {
-        MovieRepository.getPopularMovies(
+        MovieRepository.getUpcoming(
             upcomingMoviesPage,
             ::onUpcomingMoviesFetched,
             ::onError
@@ -152,7 +145,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onUpcomingMoviesFetched(movies: List<Movie>) {
-        topRatedMoviesAdapter.appendMovies(movies)
+        upcomingMoviesAdapter.appendMovies(movies)
         attachUpComingMoviesOnScrollLister()
     }
 

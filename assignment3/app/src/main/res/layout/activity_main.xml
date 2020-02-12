@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <androidx.core.widget.NestedScrollView
+    style="@style/AppTheme"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -17,8 +18,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Popular"
-        android:textColor="@android:color/white"
+        android:text="@string/now_playing"
+
         android:textSize="18sp"
         android:textStyle="bold"/>
 
@@ -27,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:text="Most Popular Movies"/>
+            android:text="@string/in_theater"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/popular_movies"
@@ -45,7 +46,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:text="Top Rated"
-            android:textColor="@android:color/white"
+
             android:textSize="18sp"
             android:textStyle="bold"/>
 
@@ -72,7 +73,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:text="Upcomings"
-            android:textColor="@android:color/white"
+
             android:textSize="18sp"
             android:textStyle="bold"/>
 
