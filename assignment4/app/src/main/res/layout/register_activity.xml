@@ -37,4 +37,12 @@
         android:text="@string/create_act"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/retrieve"
+        style="@style/viewCustom"
+        android:background="@color/colorAccent"
+        android:text="Retrieve"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
 </LinearLayout>
