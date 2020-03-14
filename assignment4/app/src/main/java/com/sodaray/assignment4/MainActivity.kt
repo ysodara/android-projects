@@ -34,6 +34,8 @@ class MainActivity : AppCompatActivity() {
         if (sharedPreference.getValueString("firstName")!=null) {
 
             firstName.text = sharedPreference.getValueString("firstName")
+            lastName.text = sharedPreference.getValueString("lastName")
+            email.text = sharedPreference.getValueString("email")
 
             Toast.makeText(this@MainActivity,"Data Not null",Toast.LENGTH_SHORT).show()
 
