@@ -2,12 +2,14 @@ package com.sodaray.assignment4
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class RegisterActivity : AppCompatActivity() {
+
     lateinit var edtFirstName:EditText
     lateinit var edtLastName:EditText
     lateinit var edtEmail:EditText
@@ -27,23 +29,25 @@ class RegisterActivity : AppCompatActivity() {
         btnRegister = findViewById(R.id.btn_register)
 
         btnRegister.setOnClickListener {
+
             val firstName = edtFirstName.editableText.toString()
             val lastName = edtLastName.editableText.toString()
             val email = edtEmail.editableText.toString()
             val password = edtPassword.editableText.toString()
 
-            sharedPreference.save("firstName",firstName)
+        if (!TextUtils.isEmpty(firstName) && !TextUtils.isEmpty(lastName)
+            && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
+            sharedPreference.save("firstName", firstName)
             sharedPreference.save("lastName", lastName)
             sharedPreference.save("email", email)
             sharedPreference.save("password", password)
 
-            Toast.makeText(this@RegisterActivity,"Data Stored", Toast.LENGTH_SHORT).show()
-
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-
-
-
+        }
+            else {
+            Toast.makeText(this@RegisterActivity,"Please fill all the information", Toast.LENGTH_SHORT).show()
+        }
         }
 
     }
